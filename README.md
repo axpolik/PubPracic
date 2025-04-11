@@ -41,7 +41,7 @@ Zanim zaczniesz, upewnij się, że masz zainstalowane następujące darmowe narz
 
 1.  **Sklonuj Repozytorium:** Otwórz terminal (lub Git Bash w Windows) i użyj komendy `git clone`, podając adres URL tego repozytorium (znajdziesz go na stronie GitHub, klikając zielony przycisk "Code").
     ```bash
-    git clone https://github.com/axpolik/PubPracic
+    git clone https://github.com/axpolik/PubPracic.git
     ```
 2.  **Przejdź do Folderu:** Wejdź do nowo utworzonego folderu repozytorium.
     ```bash
