@@ -1,40 +1,35 @@
-**Witaj! - Twój Pierwszy Projekt: Inteligentny Asystent Inwestora ETF (Wersja z Wyzwaniem!)**
+# Projekt 1: Agent Analizy Rynku ETF
 
-Cześć!
+Twoim celem jest zbudowanie prostego, zautomatyzowanego skryptu w Pythonie (nazwijmy go "Agent ETF"), który codziennie pobierze dane o wybranym funduszu ETF, przeanalizuje je i wyśle podsumowanie e-mailem.
 
-Zanim oficjalnie rozpoczniesz praktyki, chcemy dać Ci szansę na rozgrzewkę i zdobycie pierwszych praktycznych umiejętności w obszarze, który jest dla nas ważny – automatyzacji i analizy danych, z wykorzystaniem narzędzi często używanych w połączeniu z chmurą Microsoft Azure.
+To zadanie pozwoli Ci przećwiczyć podstawy Pythona, pracę z zewnętrznymi serwisami (API), przetwarzanie danych i automatyzację – umiejętności kluczowe w naszej pracy, często wykorzystywane w połączeniu z chmurą Microsoft Azure. Dodatkowo, będziesz używać systemu kontroli wersji Git do zapisywania postępów swojej pracy.
 
-Twoim zadaniem będzie stworzenie prostego "agenta AI" (a dokładniej: zautomatyzowanego skryptu), który będzie codziennie analizował rynek wybranych funduszy ETF i wysyłał e-mailem podsumowanie wraz z podstawowymi sugestiami. Tym razem jednak, zamiast gotowego kodu, dostaniesz wskazówki i fragmenty, a resztę logiki będziesz musiał(a) zbudować samodzielnie!
-
-**Cel projektu:**
-
-1.  **Nauka samodzielnego programowania:** Zrozumiesz, jak przełożyć wymagania na działający kod w Pythonie.
-2.  **Praca z danymi i API:** Nauczysz się, jak samodzielnie znaleźć sposób na pobranie i przetworzenie danych z zewnętrznego źródła.
-3.  **Rozwiązywanie problemów:** Zmierzysz się z typowymi wyzwaniami programistycznymi: obsługą błędów, przetwarzaniem różnych formatów danych.
-4.  **Automatyzacja zadań:** Zbudujesz program wykonujący powtarzalne czynności.
-5.  **Podstawy finansów i AI:** Zrozumiesz podstawy ETF i jak proste reguły mogą naśladować podejmowanie decyzji.
-
-**Co zbudujesz?**
+## Co Zbudujesz?
 
 Program ("Agent ETF"), który każdego dnia:
 
-1.  **Samodzielnie pobierze** aktualne dane (cenę zamknięcia) dla jednego lub kilku wybranych funduszy ETF z publicznie dostępnego API.
+1.  **Samodzielnie pobierze** aktualne dane (cenę zamknięcia) dla jednego wybranego funduszu ETF z publicznie dostępnego API (np. Alpha Vantage).
 2.  **Obliczy** zmianę procentową ceny w stosunku do poprzedniego dnia.
 3.  **Na podstawie zdefiniowanych przez Ciebie reguł** wygeneruje prostą rekomendację (np. KUP, SPRZEDAJ, TRZYMAJ).
-4.  **Sformatuje** podsumowanie (np. "ETF XYZ: Zmiana dzienna +0.8%, Cena: 150 USD, Sugestia: TRZYMAJ").
-5.  **Wyśle** podsumowanie na Twój adres e-mail.
+4.  **Sformatuje** podsumowanie tekstowe zawierające kluczowe informacje.
+5.  **Wyśle** to podsumowanie na Twój adres e-mail.
 
-**Dlaczego ten projekt?**
+## Dlaczego Ten Projekt?
 
-To wyzwanie pozwoli Ci naprawdę wgryźć się w proces tworzenia oprogramowania. Umiejętności, które zdobędziesz – samodzielne szukanie rozwiązań, debugowanie kodu, praca z Pythonem i API – są kluczowe w naszej branży i świetnie przygotują Cię do pracy z technologiami chmurowymi jak Microsoft Azure.
+*   **Praktyczne programowanie:** Zastosujesz teorię Pythona w realnym zadaniu.
+*   **Praca z API:** Nauczysz się komunikować z zewnętrznymi usługami.
+*   **Podstawy analizy:** Zobaczysz, jak kod może pomagać w interpretacji danych.
+*   **Automatyzacja:** Zrozumiesz, jak oszczędzać czas, automatyzując zadania.
+*   **Kontrola Wersji (Git):** Nauczysz się podstawowych komend Git do śledzenia zmian w kodzie – to fundamentalna umiejętność każdego programisty.
 
-**Krok 1: Zdobądź wiedzę teoretyczną (Fundamenty)**
+## Krok 1: Wiedza Teoretyczna (Fundamenty)
+
+Zanim zaczniesz kodować, poświęć trochę czasu na zrozumienie podstaw. Oto zasoby, które Ci pomogą:
 
 1.  **Podstawy Programowania w Pythonie:**
     *   **Dlaczego Python?** Jest stosunkowo łatwy do nauki, ma mnóstwo gotowych narzędzi (bibliotek) i jest szeroko używany w analizie danych, AI i web development'cie (również w Azure!).
     *   **Gdzie się uczyć?**
         *   **Oficjalny tutorial Python (PL):** [https://docs.python.org/pl/3/tutorial/index.html](https://docs.python.org/pl/3/tutorial/index.html) (Zacznij od rozdziałów 1-5).
-        *   **Codecademy (częściowo darmowy kurs interaktywny):** [https://www.codecademy.com/learn/learn-python-3](https://www.codecademy.com/learn/learn-python-3)
         *   **Kanał YouTube "Kurs Python od podstaw dla zielonych" M. Mikulskiego:** [https://www.youtube.com/playlist?list=PL6aekdNhY7DBGiMXNMRIrM9Qfg0sjsdvU](https://www.youtube.com/playlist?list=PL6aekdNhY7DBGiMXNMRIrM9Qfg0sjsdvU)
     *   **Kluczowe koncepty do zrozumienia:** Zmienne, typy danych (liczby, napisy, listy, słowniki), instrukcje warunkowe (`if`, `elif`, `else`), pętle (`for`, `while`), funkcje, importowanie modułów/bibliotek.
 
@@ -52,171 +47,178 @@ To wyzwanie pozwoli Ci naprawdę wgryźć się w proces tworzenia oprogramowania
         *   **Strona Beta Securities (polski dostawca ETF):** [https://betasecurities.pl/co-to-jest-etf](https://betasecurities.pl/co-to-jest-etf)
     *   **Kluczowe koncepty:** Czym jest ETF, jak jest wyceniany (cena na giełdzie), przykład popularnego ETF (np. śledzący S&P 500 - symbol SPY, lub polski - np. na WIG20). W tym projekcie skupimy się głównie na **dziennej cenie zamknięcia**.
 
-**Krok 2: Przygotuj narzędzia**
+4.  **Podstawy Git:** Co to jest repozytorium, commit, add, status, log.
+    *   *Zasoby:* [Oficjalna książka Pro Git (PL - rozdziały 1-2)](https://git-scm.com/book/pl/v2), [Interaktywny tutorial Git](https://try.github.io/).
 
-1.  **Python:** Pobierz i zainstaluj najnowszą wersję Pythona 3 ze strony: [https://www.python.org/downloads/](https://www.python.org/downloads/) (Upewnij się, że podczas instalacji zaznaczyłeś opcję "Add Python to PATH").
-2.  **Edytor Kodu (IDE):** Polecamy Visual Studio Code (VS Code). Jest darmowy, potężny i popularny. Pobierz go stąd: [https://code.visualstudio.com/](https://code.visualstudio.com/). Po instalacji zainstaluj rozszerzenie "Python" od Microsoftu (w zakładce Extensions w VS Code).
-3.  **Konto E-mail:** Będziesz potrzebować adresu e-mail do wysyłania podsumowań (może być Twój prywatny Gmail, ale o tym później).
-4.  **Klucz API do danych finansowych:** Potrzebujesz źródła danych o ETF. Dobrym i darmowym (z limitami) miejscem na start jest Alpha Vantage:
-    *   Wejdź na [https://www.alphavantage.co/support/#api-key](https://www.alphavantage.co/support/#api-key)
-    *   Wypełnij krótki formularz, aby otrzymać darmowy klucz API (API Key). Zapisz go sobie, będzie potrzebny w kodzie.
+## Krok 2: Przygotowanie Narzędzi
 
-**Krok 3: Budowa Agenta ETF - Wskazówki i Fragmenty Kodu**
+Potrzebujesz (zakładamy, że masz je już zainstalowane zgodnie z głównym README):
 
-Otwórz VS Code, stwórz nowy plik (np. `agent_etf.py`). Zaczynamy budowę, ale tym razem Ty wypełniasz luki!
+1.  **Python 3**
+2.  **Visual Studio Code (VS Code)** z rozszerzeniem Python
+3.  **Git**
+4.  **Konto E-mail** (np. Gmail z wygenerowanym **hasłem do aplikacji**)
+5.  **Klucz API** z Alpha Vantage ([https://www.alphavantage.co/support/#api-key](https://www.alphavantage.co/support/#api-key))
+
+## Krok 3: Budowa Agenta ETF (Wskazówki i Fragmenty Kodu)
+
+Otwórz folder tego projektu (`Projekt_01_Agent_ETF`) w VS Code. Główny kod będziesz pisać w pliku `agent_etf.py` (możesz go stworzyć, jeśli jeszcze nie istnieje).
+
+### Praca z Git podczas Projektu
+
+Zanim zaczniesz kodować, poznaj podstawowy cykl pracy z Gitem, którego będziesz używać:
+
+1.  **Sprawdź status:** Zobacz, które pliki zostały zmienione.
+    ```bash
+    git status
+    ```
+2.  **Dodaj zmiany do "poczekalni" (staging area):** Wybierz pliki, które chcesz zapisać w następnym "punkcie kontrolnym" (commicie). Najczęściej będziesz dodawać plik, nad którym pracujesz.
+    ```bash
+    git add agent_etf.py
+    ```
+    (lub `git add .` aby dodać wszystkie zmienione pliki w bieżącym folderze i podfolderach)
+3.  **Zapisz punkt kontrolny (commit):** Stwórz "migawkę" swojego kodu z krótkim opisem wprowadzonych zmian.
+    ```bash
+    git commit -m "Opis twojej zmiany, np. Dodano funkcję pobierania danych ETF"
+    ```
+4.  **(Opcjonalnie) Zobacz historię:** Wyświetl listę zapisanych commitów.
+    ```bash
+    git log --oneline
+    ```
+
+**Staraj się robić commity często!** Po każdym zrealizowanym, logicznym etapie (np. "dodałem funkcję X", "poprawiłem błąd Y", "dodałem obsługę Z"), zrób `git add` i `git commit`. To pomoże Ci śledzić postępy i ewentualnie wrócić do poprzedniej działającej wersji.
+
+---
+
+### Zaczynamy Kodowanie!
 
 1.  **Import potrzebnych bibliotek:**
-    *   Będziesz potrzebować bibliotek do wysyłania zapytań HTTP, pracy z JSON, wysyłania e-maili i obsługi daty/czasu. Jakich? Poszukaj w dokumentacji Pythona lub zasobach z Kroku 1.
-    *   **Wskazówka:** Popularna biblioteka do zapytań HTTP to `requests`. Do e-maili często używa się `smtplib` i `email.mime.text`. Upewnij się, że je zainstalowałeś (`pip install ...`).
+    *   Zaimportuj biblioteki do: zapytań HTTP (`requests`), obsługi JSON (`json`), wysyłki e-maili (`smtplib`, `email.mime.text`), pracy z datami (`datetime`).
+    *   Pamiętaj o instalacji, jeśli ich nie masz (`pip install requests`).
 
 2.  **Konfiguracja:**
-    *   Zdefiniuj zmienne na początku skryptu, aby przechowywać Twój klucz API, symbol ETF, dane do logowania e-mail. To dobra praktyka.
+    *   Zdefiniuj stałe na początku skryptu dla klucza API, symbolu ETF, danych do e-maila.
         ```python
         # === Konfiguracja ===
         API_KEY = "TWOJ_KLUCZ_API_Z_ALPHA_VANTAGE"
-        ETF_SYMBOL = "SPY" # Możesz zmienić na inny
+        ETF_SYMBOL = "SPY" # Przykładowy symbol, możesz zmienić
         EMAIL_SENDER = "twoj_email@gmail.com"
-        EMAIL_PASSWORD = "twoje_haslo_aplikacji_gmail" # Pamiętaj o haśle aplikacji!
+        EMAIL_PASSWORD = "twoje_haslo_aplikacji_gmail" # Hasło aplikacji!
         EMAIL_RECEIVER = "odbiorca@example.com"
         # === Koniec Konfiguracji ===
         ```
+    *   **Zapisz postęp:**
+        ```bash
+        git add agent_etf.py
+        git commit -m "Initial setup and configuration variables"
+        ```
 
 3.  **Pobieranie danych z API (Twoje Zadanie!):**
-    *   Musisz skonstruować URL do API Alpha Vantage (funkcja `TIME_SERIES_DAILY`). Dokumentację znajdziesz na ich stronie.
-    *   Użyj biblioteki `requests`, aby wysłać zapytanie GET pod ten URL.
-    *   Sprawdź, czy odpowiedź serwera jest poprawna (kod statusu 200).
-    *   Przekonwertuj odpowiedź (która będzie w formacie JSON) na słownik Pythona.
+    *   Napisz funkcję `get_etf_data(api_key, symbol)`, która:
+        *   Skonstruuje poprawny URL do API Alpha Vantage (`TIME_SERIES_DAILY`).
+        *   Użyje `requests.get()` do pobrania danych.
+        *   Sprawdzi status odpowiedzi (`response.raise_for_status()`).
+        *   Przetworzy odpowiedź JSON na słownik Pythona (`response.json()`).
+        *   **Ważne:** Sprawdzi, czy odpowiedź zawiera oczekiwany klucz (`'Time Series (Daily)'`). Jeśli nie, powinna zwrócić `None` lub zgłosić błąd i obsłużyć go (np. wydrukować komunikat). Pamiętaj też o obsłudze błędów połączenia (`requests.exceptions.RequestException`) i błędów dekodowania JSON (`json.JSONDecodeError`).
     *   **Fragment-Wskazówka:**
         ```python
-        import requests # Upewnij się, że masz ten import
+        import requests
+        import json # Upewnij się, że masz te importy
 
         def get_etf_data(api_key, symbol):
-            # Zbuduj URL używając f-string lub innego formatowania
-            # Dokumentacja Alpha Vantage podpowie, jakich parametrów użyć
-            url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}&outputsize=compact' # To jest przykład, dostosuj go!
-
-            print(f"Wysyłam zapytanie do: {url}") # Dobrze jest wiedzieć, co się dzieje
+            url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}&outputsize=compact'
+            print(f"Pobieram dane dla {symbol}...")
             try:
                 response = requests.get(url)
-                response.raise_for_status() # To zgłosi błąd dla statusów 4xx/5xx
-                # Co dalej? Jak przetworzyć 'response', aby dostać dane?
-                # Użyj metody .json() na obiekcie response
+                response.raise_for_status()
                 data = response.json()
-
-                # WAŻNE: Sprawdź, czy 'data' zawiera oczekiwane klucze!
-                # Np. czy istnieje klucz 'Time Series (Daily)'?
-                # Jeśli nie, API mogło zwrócić błąd (np. zły symbol, limit zapytań) - obsłuż to!
                 if "Time Series (Daily)" not in data:
-                   print("Błąd w odpowiedzi API:", data)
-                   return None # Zwróć None lub rzuć wyjątek, jeśli coś poszło nie tak
-
-                return data['Time Series (Daily)'] # Zwróć tylko część z danymi dziennymi
-
+                   print(f"Błąd w odpowiedzi API dla {symbol}:", data)
+                   return None
+                return data['Time Series (Daily)']
             except requests.exceptions.RequestException as e:
                 print(f"Błąd połączenia z API: {e}")
                 return None
-            # Jakie inne błędy mogą tu wystąpić? Pomyśl o `json.JSONDecodeError`.
-            except Exception as e: # Ogólny handler na inne niespodziewane błędy
+            except json.JSONDecodeError:
+                print(f"Błąd przetwarzania odpowiedzi JSON z API dla {symbol}. Odpowiedź: {response.text}")
+                return None
+            except Exception as e:
                  print(f"Wystąpił niespodziewany błąd podczas pobierania danych: {e}")
                  return None
 
-        # Wywołaj funkcję i zobacz, co zwraca
+        # Przetestuj funkcję
         daily_data = get_etf_data(API_KEY, ETF_SYMBOL)
-        # print(daily_data) # Odkomentuj, żeby zobaczyć strukturę danych
+        # if daily_data:
+        #    print("Pobrano dane!")
+        # else:
+        #    print("Nie udało się pobrać danych.")
         ```
-    *   **Twoje zadanie:** Dokończ funkcję `get_etf_data`, dodaj obsługę błędów (co jeśli API zwróci błąd w JSONie? Co jeśli nie ma klucza 'Time Series (Daily)'?), przetestuj ją.
+    *   **Zapisz postęp:** Po napisaniu i przetestowaniu funkcji:
+        ```bash
+        git add agent_etf.py
+        git commit -m "Implemented function to fetch ETF data from Alpha Vantage with error handling"
+        ```
 
 4.  **Przetwarzanie danych (Twoje Zadanie!):**
-    *   Mając `daily_data` (który jest słownikiem, gdzie klucze to daty), musisz:
-        *   Znaleźć najnowszą datę i datę poprzednią. (Wskazówka: klucze słownika, sortowanie).
-        *   Wyciągnąć cenę zamknięcia ('4. close') dla obu tych dat. Pamiętaj, że te wartości są tekstowe - przekonwertuj je na liczby (`float`).
-        *   Obliczyć zmianę procentową: `((nowa_cena - stara_cena) / stara_cena) * 100`.
-    *   **Wskazówka:** Ostrożnie z dostępem do słowników. Co jeśli danych jest mniej niż 2 dni? Użyj `try...except KeyError` lub sprawdzaj długość listy dat.
+    *   Jeśli `get_etf_data` zwróciło dane (`daily_data` nie jest `None`):
+        *   Pobierz klucze słownika `daily_data` (daty) i posortuj je malejąco, aby uzyskać najnowsze daty na początku.
+        *   Sprawdź, czy masz dane z co najmniej dwóch dni.
+        *   Wyciągnij cenę zamknięcia (`'4. close'`) dla najnowszej i poprzedniej daty. Pamiętaj o konwersji na `float()`.
+        *   Oblicz zmianę procentową.
+        *   Obsłuż przypadek, gdy jest za mało danych do obliczenia zmiany.
+    *   **Wskazówka:** Użyj bloku `if daily_data:` aby kontynuować tylko jeśli dane zostały poprawnie pobrane.
 
 5.  **Generowanie Rekomendacji (Twoje Zadanie!):**
-    *   Napisz serię instrukcji `if/elif/else`, które na podstawie obliczonej zmiany procentowej (`price_change_percent`) przypiszą odpowiedni tekst rekomendacji do zmiennej (np. `recommendation`).
-    *   **Fragment-Wskazówka:**
-        ```python
-        recommendation = "Brak wystarczających danych" # Domyślna wartość
-
-        # Upewnij się, że masz obliczoną zmianę procentową (price_change_percent)
-        # Pamiętaj, że mogła nie zostać obliczona, jeśli było za mało danych
-        # if price_change_percent is not None: # Dobry pomysł, żeby to sprawdzić!
-
-        # Zdefiniuj WŁASNE proste reguły, np.:
-        # if price_change_percent > 2.0:
-        #     recommendation = "ROZWAŻ SPRZEDAŻ (Silny wzrost)"
-        # elif ... : # Dodaj więcej warunków
-        #     recommendation = "..."
-        # else:
-        #     recommendation = "TRZYMAJ (Stabilnie)"
-
-        print(f"Rekomendacja: {recommendation}")
+    *   Napisz logikę (`if/elif/else`), która na podstawie `price_change_percent` wygeneruje tekstową rekomendację. Zdefiniuj własne progi (np. > 1.5% "Rozważ Zmniejszenie", < -1.5% "Rozważ Zakup" itp.).
+    *   Przypisz rekomendację do zmiennej `recommendation`. Obsłuż przypadek, gdy zmiana procentowa nie mogła być obliczona.
+    *   **Zapisz postęp:** Po zaimplementowaniu przetwarzania danych i logiki rekomendacji:
+        ```bash
+        git add agent_etf.py
+        git commit -m "Added logic for data processing and generating basic recommendations"
         ```
-    *   **Twoje zadanie:** Zdefiniuj progi procentowe i odpowiadające im komunikaty. Bądź kreatywny(a), ale pamiętaj, że to tylko symulacja!
 
 6.  **Formatowanie Podsumowania do E-maila (Twoje Zadanie!):**
-    *   Stwórz zmienną tekstową (`subject`) na temat e-maila.
-    *   Stwórz drugą zmienną tekstową (`body`) zawierającą treść wiadomości. Użyj f-stringów lub metody `.format()`, aby wstawić do treści aktualne dane (symbol ETF, datę, cenę, zmianę procentową, rekomendację).
-    *   **Wskazówka:** Użyj potrójnych cudzysłowów (`"""Tekst..."""`) do stworzenia wieloliniowego tekstu treści e-maila. Pamiętaj o dodaniu informacji, że to automatyczna wiadomość edukacyjna i nie jest poradą inwestycyjną.
+    *   Stwórz zmienne `subject` (temat) i `body` (treść) e-maila.
+    *   Użyj f-stringów, aby wstawić do treści e-maila: symbol ETF, datę, cenę, zmianę procentową (jeśli dostępna) i wygenerowaną rekomendację.
+    *   Dodaj standardową stopkę informującą, że to **wiadomość automatyczna i nie jest poradą inwestycyjną**.
 
 7.  **Wysyłanie E-maila (Twoje Zadanie!):**
-    *   Użyj biblioteki `smtplib` do wysłania e-maila. Będziesz musiał(a):
-        *   Połączyć się z serwerem SMTP (dla Gmaila: `smtp.gmail.com`, port 465 z SSL).
-        *   Zalogować się używając swojego adresu e-mail i **hasła do aplikacji**.
-        *   Stworzyć obiekt wiadomości (np. używając `email.mime.text.MIMEText`), ustawiając nadawcę, odbiorcę, temat i treść. Pamiętaj o kodowaniu UTF-8 dla polskich znaków!
-        *   Wysłać wiadomość.
-        *   Zamknąć połączenie z serwerem.
-    *   **Fragment-Wskazówka:**
-        ```python
-        import smtplib
-        from email.mime.text import MIMEText # Upewnij się, że masz ten import
-
-        def send_email(sender, password, receiver, subject, body):
-            # Stwórz obiekt wiadomości MIMEText
-            # Ustaw kodowanie 'utf-8'
-            # message = MIMEText(body, 'plain', 'utf-8')
-            # message['Subject'] = ...
-            # message['From'] = ...
-            # message['To'] = ...
-
-            try:
-                # Połącz się z serwerem SMTP (przykład dla Gmaila)
-                # server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-                # server.ehlo() # Przywitaj się z serwerem
-                # server.login(sender, password)
-                # server.sendmail(sender, receiver, message.as_string()) # Wyślij!
-                # server.close()
-                print(f"\nE-mail (symulacja wysyłki) do {receiver} wysłany.") # Na razie symulacja
-            except Exception as e:
-                print(f"\nNie udało się wysłać e-maila: {e}")
-                # Tutaj dodaj faktyczny kod wysyłki w bloku try
-                pass # Usuń 'pass' gdy dodasz prawdziwy kod
-
-        # Wywołaj funkcję pod koniec skryptu
-        # Pamiętaj, aby przekazać poprawnie temat (subject) i treść (body)
-        # send_email(EMAIL_SENDER, EMAIL_PASSWORD, EMAIL_RECEIVER, subject, body)
+    *   Napisz funkcję `send_email(sender, password, receiver, subject, body)`, która:
+        *   Użyje `smtplib` do połączenia z serwerem SMTP (np. Gmaila: `smtp.gmail.com`, port 465, SSL).
+        *   Zaloguje się (`server.login()`) używając `EMAIL_SENDER` i `EMAIL_PASSWORD` (hasło aplikacji!).
+        *   Stworzy obiekt wiadomości `MIMEText` z treścią `body`, ustawiając kodowanie `utf-8`. Ustaw też nagłówki 'Subject', 'From', 'To'.
+        *   Wyśle e-mail (`server.sendmail()`).
+        *   Zamknie połączenie (`server.close()`).
+        *   Obsłuży potencjalne błędy w bloku `try...except`.
+    *   Wywołaj tę funkcję na końcu skryptu, jeśli wszystkie poprzednie kroki się powiodły.
+    *   **Zapisz postęp:**
+        ```bash
+        git add agent_etf.py
+        git commit -m "Implemented email sending functionality with error handling"
         ```
-    *   **Twoje zadanie:** Uzupełnij funkcję `send_email`, aby faktycznie wysyłała e-mail. Obsłuż możliwe błędy (np. błąd logowania).
 
 8.  **Testowanie i Debugowanie:**
-    *   Uruchamiaj skrypt (`python agent_etf.py`) często, po każdej większej zmianie.
-    *   Używaj `print()` do wyświetlania wartości zmiennych w różnych miejscach kodu, aby sprawdzić, czy są poprawne.
-    *   Czytaj uważnie komunikaty błędów – one często podpowiadają, co poszło nie tak.
-    *   Testuj różne scenariusze: co jeśli API nie odpowie? Co jeśli nie ma danych historycznych?
+    *   Uruchamiaj skrypt (`python agent_etf.py`) często.
+    *   Używaj `print()` do sprawdzania wartości zmiennych.
+    *   Czytaj komunikaty błędów!
+    *   Sprawdzaj, czy e-maile dochodzą i czy ich treść jest poprawna.
 
 **Krok 4: Co dalej? (Opcjonalne pomysły na rozwój)**
 
-*   Analiza wielu ETF-ów.
-*   Bardziej złożone reguły (np. średnia krocząca).
-*   Zapisywanie historii do pliku.
-*   Automatyczne uruchamianie (Harmonogram Zadań / cron).
-*   Wizualizacja danych (`matplotlib`).
+Jeśli poradzisz sobie z podstawową wersją, oto kilka pomysłów, jak możesz rozwinąć projekt (ale nie jest to wymagane!):
 
-**Masz pytania? Utknąłeś/Utknęłaś?**
+*   **Analiza większej liczby ETF-ów:** Zmodyfikuj kod, aby analizował listę kilku różnych ETF-ów.
+*   **Bardziej złożone reguły:** Dodaj obliczanie prostej średniej kroczącej (np. z 5 dni) i użyj jej w regułach rekomendacji.
+*   **Zapisywanie historii:** Zapisuj codzienne dane i rekomendacje do pliku (np. CSV lub JSON), aby móc śledzić historię.
+*   **Automatyczne uruchamianie:** Dowiedz się, jak można ustawić automatyczne uruchamianie skryptu codziennie o określonej porze (np. za pomocą Harmonogramu Zadań w Windows lub `cron` w systemach Linux/MacOS). W przyszłości na praktykach pokażemy Ci, jak takie rzeczy robić w chmurze Azure (np. Azure Functions, Logic Apps).
+*   **Wizualizacja:** Spróbuj użyć biblioteki `matplotlib`, aby narysować prosty wykres ceny ETF.
 
-To część procesu! Zapisuj problemy, na które natrafiasz. Spróbuj poszukać rozwiązań w dokumentacji Pythona, na stronach typu Stack Overflow (wpisując komunikat błędu lub opis problemu po angielsku). Kiedy zaczniesz praktyki, przejrzymy Twój kod i omówimy wyzwania. Nie poddawaj się!
+**Ważna Uwaga Końcowa (Disclaimer)**
 
-Powodzenia w budowaniu Twojego pierwszego agenta!
+Pamiętaj, że ten projekt ma charakter **wyłącznie edukacyjny**. Stworzony agent i jego rekomendacje są oparte na bardzo uproszczonych zasadach. **Nigdy nie używaj tego typu automatycznych sugestii do podejmowania prawdziwych decyzji inwestycyjnych bez dogłębnej analizy i zrozumienia ryzyka.** Rynek finansowy jest złożony, a inwestowanie wiąże się z ryzykiem utraty kapitału.
 
-Zespół XPLUS
+**Masz pytania?**
+
+To naturalne, że podczas pracy nad projektem pojawią się pytania lub trudności. Spisuj je sobie. Spróbuj poszukać rozwiązań w dokumentacji Pythona, na stronach typu Stack Overflow (wpisując komunikat błędu lub opis problemu po angielsku). Okresowo wysylaj do nas, chętnie na nie odpowiemy i pomożemy Ci rozwiązać problemy. Nie bój się pytać – to najlepszy sposób na naukę!
+
+Powodzenia! Jesteśmy ciekawi efektów Twojej pracy!
