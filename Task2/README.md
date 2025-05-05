@@ -87,20 +87,20 @@ Stwórz nowy folder dla projektu (np. Projekt\_02\_Agregator\_Nastrojow) i zaini
 ```python
      from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-     analyzer \= SentimentIntensityAnalyzer()
+     analyzer = SentimentIntensityAnalyzer()
 
-     def analyze\_sentiment\_vader(text):  
-         vs \= analyzer.polarity\_scores(text)  
-         \# compound score ranges from \-1 (most negative) to \+1 (most positive)  
-         if vs\['compound'\] \>= 0.05:  
-             return 'positive', vs\['compound'\]  
-         elif vs\['compound'\] \<= \-0.05:  
-             return 'negative', vs\['compound'\]  
+     def analyze_sentiment_vader(text):  
+         vs = analyzer.polarity_scores(text)  
+         # compound score ranges from -1 (most negative) to +1 (most positive)  
+         if vs['compound'] >= 0.05:  
+             return 'positive', vs['compound']  
+         elif vs['compound'] <= -0.05:  
+             return 'negative', vs['compound']  
          else:  
-             return 'neutral', vs\['compound'\]
+             return 'neutral', vs['compound']
 
-     \# Przykład użycia:  
-     \# sentiment\_label, sentiment\_score \= analyze\_sentiment\_vader("Stock price surges on positive earnings report\!")
+     # Przykład użycia:  
+     # sentiment_label, sentiment_score = analyze_sentiment_vader("Stock price surges on positive earnings report!")
 ```
    * *Commit: "Implemented sentiment analysis function using \[Method/Library\]"*  
    * *Commit: "Integrated sentiment analysis into news processing workflow"*  
